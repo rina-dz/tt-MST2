@@ -1,46 +1,221 @@
+html {
+    font-size: clamp(9px, 2vw, 16px);
+}
+
 body {
     margin: 0;
     height: 100vh;
-    background-color: #000;
-    font-size: clamp(9px, 2vw, 16px);
     color: rgb(255, 255, 255);
     font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
     font-weight: 600;
 }
 
 .page {
+    position: relative;
     display: flex;
-    max-width: 100%;
-    padding: 45px 1%;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
     flex-wrap: wrap;
 }
 
 .text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
     margin: 0;
     white-space: normal;
     overflow-wrap: break-word;
-    font-size: 4.7rem;
-    text-align: justify;
+    font-size: 6.8vw;
+    text-align: left;
+    max-width: 100%;
+    height: 100%;
+    padding: 2.5%;
+    background-color: #000;
+    mix-blend-mode: multiply;
+}
+
+.fake-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin: 0;
+    white-space: normal;
+    overflow-wrap: break-word;
+    font-size: 6.8vw;
+    text-align: left;
+    max-width: 100%;
+    height: 100%;
+    padding: 2.5%;
+}
+
+.fake-block {
+    display: inline-block;
+    height: 3.5rem;
+    margin: 0 20px;
+    background-color: transparent;
+}
+
+.fake-block:nth-child(1) {
+    width: 30%;
+}
+
+.fake-block:nth-child(2) {
+    width: 13%;
+}
+
+.fake-block:nth-child(3) {
+    width: 20%;
+}
+
+.fake-block:nth-child(4) {
+    width: 54%;
+    margin-right: 0;
 }
 
 .block {
     display: inline-block;
-    width: clamp(100px, 33%, 400px);
     height: 3.5rem;
-    /* margin: 0 1.5%; */
     margin: 0 20px;
+    background-color: #ffffff;
+}
+
+.block:nth-child(1) {
+    width: 30%;
+}
+
+.block:nth-child(2) {
+    width: 13%;
 
 }
 
-canvas {
-    width: clamp(100px, 100%, 400px);
-    height: 100%;
-    object-fit: cover;
+.block:nth-child(3) {
+    width: 20%;
+}
+
+.block:nth-child(4) {
+    width: 54%;
+    margin-right: 0;
 }
 
 .video {
     position: absolute;
-    width: 0;
-    height: 0;
-    z-index: -1; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.mob-text,
+.mob-block,
+.mob-fake-text,
+.mob-fake-block {
+    display: none;
+}
+
+@media screen and (max-width: 750px) {
+    .text,
+    .block,
+    .fake-text,
+    .fake-block {
+        display: none;
+    }
+
+    .mob-text {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        margin: 0;
+        white-space: normal;
+        overflow-wrap: break-word;
+        font-size: 11vw;
+        text-align: left;
+        max-width: 100%;
+        height: 100%;
+        padding: 2.5%;
+        background-color: #000;
+        mix-blend-mode: multiply;
+    }
+
+    .mob-block {
+        display: inline-block;
+        height: 3.5rem;
+        margin: 0 10px;
+        background-color: #ffffff;
+    }
+
+
+    .mob-block:nth-child(1) {
+        width: 33%;
+    }
+
+    .mob-block:nth-child(2) {
+        width: 48%;
+    }
+
+    .mob-block:nth-child(3) {
+        margin-left: 0;
+        width: 19%;
+    }
+
+    .mob-block:nth-child(4) {
+        width: 13%;
+    }
+
+    .mob-block:nth-child(5) {
+        width: 26%;
+        margin-right: 0;
+    }
+
+    .mob-fake-text {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        margin: 0;
+        white-space: normal;
+        overflow-wrap: break-word;
+        font-size: 11vw;
+        text-align: left;
+        max-width: 100%;
+        height: 100%;
+        padding: 2.5%;
+        color: white;
+    }
+
+    .mob-fake-block {
+        display: inline-block;
+        height: 3.5rem;
+        margin: 0 10px;
+        background-color: transparent;
+    }
+
+    .mob-fake-block:nth-child(1) {
+        width: 33%;
+    }
+
+    .mob-fake-block:nth-child(2) {
+        width: 48%;
+    }
+
+    .mob-fake-block:nth-child(3) {
+        margin-left: 0;
+        width: 19%;
+    }
+
+    .mob-fake-block:nth-child(4) {
+        width: 13%;
+    }
+
+    .mob-fake-block:nth-child(5) {
+        width: 26%;
+        margin-right: 0;
+    }
 }
